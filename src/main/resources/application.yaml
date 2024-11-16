@@ -1,0 +1,31 @@
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: 이메일주소
+    password: 비밀번호
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, metrics, prometheus
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+
+notifier:
+  recipient-email: 이메일주소
+  title: Threshold Exceeded Warning. CPU usage is high!
+  content: Current CPU usage has exceeded the threshold.
+
+monitoring:
+  cpu:
+    threshold: 80.0
